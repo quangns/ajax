@@ -40,10 +40,11 @@ $(document).ready(function(){
         
         var txtten = <?php echo json_encode($_SESSION['name']) ?>;
         var txtbinhluan = $("#usermsg").val();
-        var timetest = new Date();
-        var txtthoigian = timetest.getHours() + ":" + timetest.getMinutes();
-        
-        $.post("post.php", {thoigian: txtthoigian, ten: txtten, binhluan: txtbinhluan}, function(data) {
+        var timeline = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        // var str = timeline.split(" ");
+        // var txtthoigian = $.format.date(new Date(), 'dd M yy');
+        // alert(timeline);        
+        $.post("post.php", {thoigian: timeline, ten: txtten, binhluan: txtbinhluan}, function(data) {
             $("#chatbox").html(data);
         })
     });

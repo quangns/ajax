@@ -7,9 +7,8 @@
         $conn = MyConnect();
         $qr = "
             insert into talk(thoigian, ten, binhluan)
-            values('$thoigian', $ten', '$binhluan')
+            values('$thoigian', '$ten', '$binhluan')
         ";
-        echo $qr;
         return mysqli_query($conn, $qr);
     };
 
